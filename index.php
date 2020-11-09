@@ -42,10 +42,9 @@ Produk</a><center>
 $page = isset($_GET['halaman'])? (int)$_GET["halaman"]:1;
 $mulai = ($page-1)*$halaman;
  $query = ("SELECT * FROM penjualan ORDER BY id ASC LIMIT ".$mulai.",".$halaman);
- $query = "SELECT * FROM penjualan ORDER BY id ASC";
  $result = mysqli_query($koneksi, $query);
- $pages = ceil($total/$halaman); 
   $total = mysqli_num_rows($result);
+   $pages = ceil($total/$halaman); 
  
  if(!$result){
  die ("Query Error: ".mysqli_errno($koneksi).
